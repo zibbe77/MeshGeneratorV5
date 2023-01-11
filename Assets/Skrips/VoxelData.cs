@@ -25,7 +25,7 @@ public class VoxelData
         DataCoordinate checkOffset = offset[(int)dir];
         DataCoordinate neighborCoord = new DataCoordinate(x + checkOffset.x, 0 + checkOffset.y, z + checkOffset.z);
 
-        if (neighborCoord.x < 0 || neighborCoord.x >= Width || neighborCoord != 0 || neighborCoord.z < 0 || neighborCoord.z >= Depth)
+        if (neighborCoord.x < 0 || neighborCoord.x >= Width || neighborCoord.y != 0 || neighborCoord.z < 0 || neighborCoord.z >= Depth)
         {
             return 0;
         }
@@ -55,9 +55,6 @@ public class VoxelData
             new DataCoordinate(-1,0,0),
             new DataCoordinate(0,1,0),
             new DataCoordinate(0,-1,0),
-
-
-
         };
     }
 
