@@ -27,12 +27,12 @@ public static class CubeMeshData
     };
 
     //Hämtar rätt data för att skappa en sida 
-    public static Vector3[] FaceVertices(int dir, float scale)
+    public static Vector3[] FaceVertices(int dir, float scale, Vector3 pos)
     {
         Vector3[] fv = new Vector3[4];
         for (int i = 0; i < fv.Length; i++)
         {
-            fv[i] = vertices[faceTriangles[dir][i]];
+            fv[i] = (vertices[faceTriangles[dir][i]]) + pos;
         }
         return fv;
     }

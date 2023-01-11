@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-/*
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
-public class proceduralCube : MonoBehaviour
+
+public class VoxelRender : MonoBehaviour
 {
     Mesh mesh;
     List<Vector3> vertices;
@@ -21,26 +20,40 @@ public class proceduralCube : MonoBehaviour
 
     void Start()
     {
-        MakeCube(adjScale);
+        GenerateVoxelMesh(new VoxelData());
         UppdateMesh();
     }
 
-    //skappar cube
-    void MakeCube(float cubeScale)
+    void GenerateVoxelMesh(VoxelData data)
     {
         vertices = new List<Vector3>();
         triangles = new List<int>();
-
-        //loppar igenom allas sidor
-        for (int i = 0; i < 6; i++)
+        for (int z = 0; z < data.Depth; z++)
         {
-            MakeFace(i, cubeScale);
+            for (var x = 0; x < data.Width; x++)
+            {
+                if (data.GetCell(x, z) == 0)
+                {
+                    continue;
+                }
+                MakeCube(adjScale, new Vector3((float)x * scale, 0, (float)z * scale));
+            }
         }
     }
 
-    void MakeFace(int dir, float facescale)
+    //skappar cube
+    void MakeCube(float cubeScale, Vector3 cubePos)
     {
-        vertices.AddRange(CubeMeshData.FaceVertices(dir, facescale));
+        //loppar igenom allas sidor
+        for (int i = 0; i < 6; i++)
+        {
+            MakeFace(i, cubeScale, cubePos);
+        }
+    }
+
+    void MakeFace(int dir, float facescale, Vector3 facePos)
+    {
+        vertices.AddRange(CubeMeshData.FaceVertices(dir, facescale, facePos));
         int vCount = vertices.Count;
 
         triangles.Add(vCount - 4);
@@ -61,4 +74,3 @@ public class proceduralCube : MonoBehaviour
         mesh.RecalculateNormals();
     }
 }
-*/
