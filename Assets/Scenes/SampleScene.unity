@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &80383336
+--- !u!1 &324156692
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -131,37 +131,37 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 80383340}
-  - component: {fileID: 80383339}
-  - component: {fileID: 80383338}
-  - component: {fileID: 80383337}
+  - component: {fileID: 324156696}
+  - component: {fileID: 324156695}
+  - component: {fileID: 324156694}
+  - component: {fileID: 324156693}
   m_Layer: 0
-  m_Name: Base
+  m_Name: Orgin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &80383337
+--- !u!114 &324156693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80383336}
+  m_GameObject: {fileID: 324156692}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfb5243b4b9d9e24da06f88243180123, type: 3}
+  m_Script: {fileID: 11500000, guid: 042b469f312dbb7499149ce5553ee076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scale: 1
---- !u!23 &80383338
+  scale: 2
+--- !u!23 &324156694
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80383336}
+  m_GameObject: {fileID: 324156692}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -197,21 +197,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &80383339
+--- !u!33 &324156695
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80383336}
+  m_GameObject: {fileID: 324156692}
   m_Mesh: {fileID: 0}
---- !u!4 &80383340
+--- !u!4 &324156696
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 80383336}
+  m_GameObject: {fileID: 324156692}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
