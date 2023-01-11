@@ -36,22 +36,25 @@ public class VoxelRender : MonoBehaviour
                 {
                     continue;
                 }
-                MakeCube(adjScale, new Vector3((float)x * scale, 0, (float)z * scale));
+                MakeCube(adjScale, new Vector3((float)x * scale, 0, (float)z * scale), x, z, data);
             }
         }
     }
 
     //skappar cube
-    void MakeCube(float cubeScale, Vector3 cubePos)
+    void MakeCube(float cubeScale, Vector3 cubePos, int x, int z, VoxelData data)
     {
         //loppar igenom allas sidor
         for (int i = 0; i < 6; i++)
         {
-            MakeFace(i, cubeScale, cubePos);
+            if (data.GetNaighbor(x, z, (Direction)i) == 0)
+            {
+                MakeFace((Direction)i, cubeScale, cubePos);
+            }
         }
     }
 
-    void MakeFace(int dir, float facescale, Vector3 facePos)
+    void MakeFace(Direction dir, float facescale, Vector3 facePos)
     {
         vertices.AddRange(CubeMeshData.FaceVertices(dir, facescale, facePos));
         int vCount = vertices.Count;

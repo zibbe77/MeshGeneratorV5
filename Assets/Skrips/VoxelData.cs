@@ -20,7 +20,7 @@ public class VoxelData
         return data[x, z];
     }
 
-    public int GetNaighbor(int x, int z, Dictionary dir)
+    public int GetNaighbor(int x, int z, Direction dir)
     {
         DataCoordinate checkOffset = offset[(int)dir];
         DataCoordinate neighborCoord = new DataCoordinate(x + checkOffset.x, 0 + checkOffset.y, z + checkOffset.z);
@@ -47,17 +47,16 @@ public class VoxelData
             this.y = y;
             this.z = z;
         }
-        DataCoordinate[] offset =
-        {
-            new DataCoordinate(0,0,1),
-            new DataCoordinate(1,0,0),
-            new DataCoordinate(0,0,-1),
-            new DataCoordinate(-1,0,0),
-            new DataCoordinate(0,1,0),
-            new DataCoordinate(0,-1,0),
-        };
     }
-
+    DataCoordinate[] offset =
+    {
+        new DataCoordinate(0,0,1),
+        new DataCoordinate(1,0,0),
+        new DataCoordinate(0,0,-1),
+        new DataCoordinate(-1,0,0),
+        new DataCoordinate(0,1,0),
+        new DataCoordinate(0,-1,0),
+    };
 }
 
 public enum Direction
