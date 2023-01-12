@@ -28,26 +28,30 @@ public class VoxelRender : MonoBehaviour
     {
         vertices = new List<Vector3>();
         triangles = new List<int>();
-        for (int z = 0; z < data.Depth; z++)
+        for (int y = 0; y < data.Hight; y++)
         {
-            for (var x = 0; x < data.Width; x++)
+            for (int z = 0; z < data.Depth; z++)
             {
-                if (data.GetCell(x, z) == 0)
+                for (int x = 0; x < data.Width; x++)
                 {
-                    continue;
+                    if (data.GetCell(x, z, y) == 0)
+                    {
+                        continue;
+                    }
+                    MakeCube(adjScale, new Vector3((float)x * scale, (float)y * scale, (float)z * scale), x, z, y, data);
+
                 }
-                MakeCube(adjScale, new Vector3((float)x * scale, 0, (float)z * scale), x, z, data);
             }
         }
     }
 
     //skappar cube
-    void MakeCube(float cubeScale, Vector3 cubePos, int x, int z, VoxelData data)
+    void MakeCube(float cubeScale, Vector3 cubePos, int x, int z, int y, VoxelData data)
     {
         //loppar igenom allas sidor
         for (int i = 0; i < 6; i++)
         {
-            if (data.GetNaighbor(x, z, (Direction)i) == 0)
+            if (data.GetNaighbor(x, z, y, (Direction)i) == 0)
             {
                 MakeFace((Direction)i, cubeScale, cubePos);
             }

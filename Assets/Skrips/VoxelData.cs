@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class VoxelData
 {
-    int[,] data = new int[,] { { 0, 1, 1 }, { 1, 1, 1 }, { 1, 1, 0 } };
+    int[,,] data = new int[,,] {
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} } };
 
     public int Width
     {
@@ -14,24 +17,28 @@ public class VoxelData
     {
         get { return data.GetLength(1); }
     }
-
-    public int GetCell(int x, int z)
+    public int Hight
     {
-        return data[x, z];
+        get { return data.GetLength(2); }
     }
 
-    public int GetNaighbor(int x, int z, Direction dir)
+    public int GetCell(int x, int z, int y)
+    {
+        return data[x, z, y];
+    }
+
+    public int GetNaighbor(int x, int z, int y, Direction dir)
     {
         DataCoordinate checkOffset = offset[(int)dir];
-        DataCoordinate neighborCoord = new DataCoordinate(x + checkOffset.x, 0 + checkOffset.y, z + checkOffset.z);
+        DataCoordinate neighborCoord = new DataCoordinate(x + checkOffset.x, y + checkOffset.y, z + checkOffset.z);
 
-        if (neighborCoord.x < 0 || neighborCoord.x >= Width || neighborCoord.y != 0 || neighborCoord.z < 0 || neighborCoord.z >= Depth)
+        if (neighborCoord.x < 0 || neighborCoord.x >= Width || neighborCoord.y < 0 || neighborCoord.y >= Width || neighborCoord.z < 0 || neighborCoord.z >= Depth)
         {
             return 0;
         }
         else
         {
-            return GetCell(neighborCoord.x, neighborCoord.z);
+            return GetCell(neighborCoord.x, neighborCoord.z, neighborCoord.y);
         }
     }
 
