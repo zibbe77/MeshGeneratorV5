@@ -22,24 +22,25 @@ public class VoxelRender : MonoBehaviour
     {
         GenerateVoxelMesh(new VoxelData());
         UppdateMesh();
+
     }
 
     void GenerateVoxelMesh(VoxelData data)
     {
         vertices = new List<Vector3>();
         triangles = new List<int>();
-        for (int y = 0; y < data.Hight; y++)
+
+        for (int x = 0; x < data.Width; x++)
         {
             for (int z = 0; z < data.Depth; z++)
             {
-                for (int x = 0; x < data.Width; x++)
+                for (int y = 0; y < data.Hight; y++)
                 {
                     if (data.GetCell(x, z, y) == 0)
                     {
                         continue;
                     }
                     MakeCube(adjScale, new Vector3((float)x * scale, (float)y * scale, (float)z * scale), x, z, y, data);
-
                 }
             }
         }

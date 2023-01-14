@@ -9,7 +9,7 @@ public class VoxelData
         { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
         { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
         { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
-        { {1,1,1,1},{1,1,1,1},{1,1,1,1} } };
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} }};
 
     public int Width
     {
@@ -34,7 +34,7 @@ public class VoxelData
         DataCoordinate checkOffset = offset[(int)dir];
         DataCoordinate neighborCoord = new DataCoordinate(x + checkOffset.x, y + checkOffset.y, z + checkOffset.z);
 
-        if (neighborCoord.x < 0 || neighborCoord.x >= Width || neighborCoord.y < 0 || neighborCoord.y >= Width || neighborCoord.z < 0 || neighborCoord.z >= Depth)
+        if (neighborCoord.x < 0 || neighborCoord.x >= Width || neighborCoord.y < 0 || neighborCoord.y >= Hight || neighborCoord.z < 0 || neighborCoord.z >= Depth)
         {
             return 0;
         }
