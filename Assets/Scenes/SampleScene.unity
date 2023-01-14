@@ -154,7 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 042b469f312dbb7499149ce5553ee076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldSize: 50
+  worldSize: 70
   worldHeighet: 40
   worldScale: 0.1
   terrainscale: 20
