@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class VoxelData
 {
-    int[,,] data;
+    int[,,] data = new int[,,] {
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} },
+        { {1,1,1,1},{1,1,1,1},{1,1,1,1} }};
 
     public int Width
     {
@@ -22,11 +27,6 @@ public class VoxelData
     public int GetCell(int x, int z, int y)
     {
         return data[x, z, y];
-    }
-
-    public VoxelData(int worldSize, int worldHeighet, float worldScale, float terrainscale)
-    {
-        data = WorldData.CreatWorld(worldSize, worldHeighet, worldScale, terrainscale);
     }
 
     public int GetNaighbor(int x, int z, int y, Direction dir)
